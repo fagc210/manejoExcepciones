@@ -47,38 +47,5 @@ public class ProcesarDatos {
 		}
 	}
 	
-	public void escribir() {
-		FileWriter file = null;
-		FileReader input = null;
-		try {
-			input = new FileReader("C:\\Fabian\\TCS_admin\\faculty\\excepciones\\src\\main\\java\\com\\capacitacion\\excepciones\\datos\\data.txt");
-			file = new FileWriter("C:\\Fabian\\TCS_admin\\faculty\\excepciones\\src\\main\\java\\com\\capacitacion\\excepciones\\datos\\data2.txt");
-			BufferedReader br = new BufferedReader(input);
-			String linea ;
-			while ((linea=br.readLine())!=null) {
-				String[] token=linea.split(";");
-				file.write(token[0]+";"+token[2]+"\n");
-			}
-			
-		} catch (IOException e) {
-			try {
-				file.close();
-				input.close();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		}finally {
-			try {
-				file.close();
-				input.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-
 
 }
