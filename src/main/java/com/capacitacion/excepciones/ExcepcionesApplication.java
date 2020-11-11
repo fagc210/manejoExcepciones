@@ -45,24 +45,18 @@ public static void caso3() {
 		//envie al metodo una fecha con el formato "yyyy/mm/dd".
 		//capture e identifique la excepcion que se genera (no la excepcion general de java Exception) 
 	    // Re-lance la excepcion y capturela aqui en el metodo case3 e imprima en consola StackTrace,Cause,Message del error; 
-		ProcesarDatos p = new ProcesarDatos();
-		try {
-			p.fecha("1980/3/19");
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+
 	}
 
 	public static void caso4() {
-		
+		//manejo de excepciones personalizadas
 		
 	}
 	
 	public static void caso5() {
-		
-		ProcesarDatos p = new ProcesarDatos();
-		p.escribir();
+		//manejo de cierre de  objetos en lectura y escritura de arhivos
+
 	}
 	
 	

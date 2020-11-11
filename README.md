@@ -1,37 +1,36 @@
-# Proyecto Base Implementando Clean Architecture
+# Manejo de Excepciones
 
-## Antes de Iniciar
+## OBJETIVO
 
-Empezaremos por explicar los diferentes componentes del proyectos y partiremos de los componentes externos, continuando
- con los componentes core de negocio (dominio) y por último el inicio y configuración de la aplicación.
+El objetivo de este taller es fortalecer los conceptos sobre el manejo de las excepciones que se generan en Java, mediante el desarrollo de ejercicios que permitan identificar algunas de las excepciones existentes, su captura y correspondiente manejo incluyendo el relanzamiento de la excepción y la generación de excepciones personalizadas.
 
-Lee el artículo [Clean Architecture — Aislando los detalles](https://medium.com/bancolombia-tech/clean-architecture-aislando-los-detalles-4f9530f35d7a)
+## REQUERIMIENTOS:
+-	IDE Java: IntelliJ IDEA, Eclipse,Spring, Jcreator, Netbeans u otro.
+-	Versión Java: 8 o superior.
+-	Cuenta creada GitHub, GitLab u otro.
 
-# Arquitectura
-![Clean Architecture](https://miro.medium.com/max/1400/1*ZdlHz8B0-qu9Y-QO3AXR_w.png)
+# Ejercicios 
+Todas las actividades se corren desde el main de la clase  ExcepcionesApplication 
+Solo des comente el caso que vaya a ejecutar para realizar el ejercicio.
 
-## Domain
-Es el módulo más interno de la arquitectura, pertenece a la capa del dominio y encapsula la lógica y reglas del negocio mediante modelos y entidades del dominio.
 
-## Usecases
-Este módulo gradle perteneciente a la capa del dominio, implementa los casos de uso del sistema, define lógica de aplicación y reacciona a las invocaciones desde el módulo de entry points, orquestando los flujos hacia el módulo de entities.
+1.	
+	a.	En el método caso1 de la clase ExcepcionesApplication   cree una instancia de la clase ProcesarDatos ;  haga uso del método division enviando los valores ("48", "0") para que se genere una excepción. En el método división capture e identifique la excepción especifica que se genera (no la excepción general de java Exception) e imprima en consola el StackTrace, Cause, Message del errror.
+	
+	b.	Repita el procedimiento, pero envié los valores ("15.8", "30") y agregue la nueva excepción que se genera.
 
-## Infrastructure
+2.	En el método caso2 de la clase ExcepcionesApplication   cree una instancia de la clase ProcesarDatos ; haga uso del método arreglo y envié un array de string de 3 posiciones  para que se genere una excepción. En el método arreglo capture e identifique la excepción especifica que se genera (no la excepción general de java Exception) e imprima en consola el StackTrace, Cause, Message del error.
 
-### Helpers
-En el apartado de helpers tendremos utilidades generales para los Driven Adapters y Entry Points.
+3.	En el método caso3 de la clase ExcepcionesApplication   cree una instancia de la clase ProcesarDatos  y haga uso del  método fecha de la clase ProcesarDatos ; envié una fecha con el formato “yyyy/mm/dd” para que se genere una excepción. Re-lance la excepción generada y captúrela en el método caso3  e imprima en consola el StackTrace, Cause, Message del error.
 
-Estas utilidades no están arraigadas a objetos concretos, se realiza el uso de generics para modelar comportamientos
-genéricos de los diferentes objetos de persistencia que puedan existir, este tipo de implementaciones se realizan
-basadas en el patrón de diseño [Unit of Work y Repository](https://medium.com/@krzychukosobudzki/repository-design-pattern-bc490b256006)
+4.	
+	a.	En el paquete com.capacitacion.excepciones.personalizadas, cree una clase para el manejo personalizado de excepciones,esta clase debe heredar de la clase Exception de Java y tener dos atributos. String causa y String tipoFalla. 
 
-Estas clases no puede existir solas y debe heredarse su compartimiento en los **Driven Adapters**
+	b.	En la clase ProcesarDatos cree un método que lea el archivo data.txt que está en el paquete com.capacitacion.excepciones.datos, el método debe recibir como parámetro la ruta del archivo. Capture y relance  la excepción que se genera en caso de no encontrar el archivo en la ruta indicada, haciendo uso la clase creada en el literal anterior . haga un llamado de este método desde el caso4 indicando un causa y tipo de falla de la clase ExcepcionesApplication  e imprima en consola  la casusa y el tipo de falla.
 
-### Driven Adapters
-Los driven adapter representan implementaciones externas a nuestro sistema, como lo son conexiones a servicios rest,
-soap, bases de datos, lectura de archivos planos, y en concreto cualquier origen y fuente de datos con la que debamos
- interactuar.
+5.	En la clase ProcesarDatos cree un método que lea el archivo data.txt que está en el paquete com.capacitacion.excepciones.datos, de forma iterativa 	     obtenga el nombre y la profesión de cada uno de los registro y escríbalos en el archivo de nombre data2.txt. agregue las excepciones que se requerían y garantice que los objetos que se usaron para la lectura y escritura de los archivos sean correctamente cerrados (close) en el catch.
 
-### Entry Points
-Los entry points representan los puntos de entrada de la aplicación o el inicio de los flujos de negocio.
+
+
+
 
