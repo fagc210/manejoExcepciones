@@ -22,20 +22,14 @@ public class ProcesarDatos {
 	
 	public void arreglo(String[] lista) {
 		
-		try {
+
 			for(int i=0;i<=5;i++) {
 				System.out.println(lista[i]);
 			}
-		} catch (Exception e) {
-			System.out.println(e.getStackTrace());
-			System.out.println(e.getCause());
-			System.out.println(e.getMessage());
-		}
-		
-		
+
 	}
 	
-	public void fecha(String input) throws ParseException {
+	public void fecha(String input) {
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -43,7 +37,7 @@ public class ProcesarDatos {
 			Date   date  = format.parse (input );
 			date.toString();
 		} catch (ParseException e) {
-			throw e;
+
 		}
 	}
 	

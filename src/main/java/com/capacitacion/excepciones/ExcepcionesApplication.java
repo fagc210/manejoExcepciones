@@ -39,7 +39,7 @@ public class ExcepcionesApplication {
 		
 	}
 	
-public static void caso3() {
+	public static void caso3() {
 		
 		//// cree una instancia de la clase ProcesarDatos y use el metodo fecha.
 		//envie al metodo una fecha con el formato "yyyy/mm/dd".
@@ -58,8 +58,6 @@ public static void caso3() {
 		//manejo de cierre de  objetos en lectura y escritura de arhivos
 
 	}
-	
-	
 	
 
 }
